@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class EventoGastronomico {
-    private UUID id;
+    private UUID idEvento;
     private String nombre;
     private String descripcion;
     private LocalDateTime fechaYHora;
@@ -16,12 +16,12 @@ public class EventoGastronomico {
 
 
 
-    public UUID getId() {
-        return id;
+    public UUID getIdEvento() {
+        return idEvento;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setIdEvento(UUID idEvento) {
+        this.idEvento = idEvento;
     }
 
     public String getNombre() {

@@ -1,18 +1,26 @@
 package ar.com.eventos.service.opciones.impl;
 
+import ar.com.eventos.service.comedor.ComedorService;
+import ar.com.eventos.service.evento.EventoService;
 import ar.com.eventos.service.opciones.OpcionesService;
 
 import java.util.Scanner;
 
 public class OpcionesServiceimpl implements OpcionesService {
 
+    private EventoService eventoService;
+    private ComedorService comedorService;
+
+
+    public OpcionesServiceimpl(EventoService eventoService, ComedorService comedorService) {
+        this.eventoService = eventoService;
+        this.comedorService = comedorService;
+    }
+
 
     @Override
-    public void mostrarOpciones() {
-
+    public void mostrarOpciones(Scanner sc) {
         int opcion = 0;
-
-        Scanner sc = new Scanner(System.in);
 
         do {
             System.out.println("Ingrese opcion: \n");
@@ -30,7 +38,7 @@ public class OpcionesServiceimpl implements OpcionesService {
 
             switch (opcion){
                 case 1:
-
+                    eventoService.crearEvento();
                     break;
                 case 2:
 
@@ -75,3 +83,4 @@ public class OpcionesServiceimpl implements OpcionesService {
 
     }
 }
+
