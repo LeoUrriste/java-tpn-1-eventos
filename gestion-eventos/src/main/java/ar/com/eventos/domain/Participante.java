@@ -10,8 +10,10 @@ public class Participante {
     private UUID idParticipante;
     private String nombre;
     private String apellido;
-    private InteresCulinarioEnum interesculinario;
+    private InteresCulinarioEnum interesCulinario;
     private List<EventoGastronomico> eventos = new ArrayList();
+
+
 
 
     public UUID getIdParticipante() {
@@ -38,12 +40,12 @@ public class Participante {
         this.apellido = apellido;
     }
 
-    public InteresCulinarioEnum getInteresculinario() {
-        return interesculinario;
+    public InteresCulinarioEnum getInteresCulinario() {
+        return interesCulinario;
     }
 
-    public void setInteresculinario(InteresCulinarioEnum interesculinario) {
-        this.interesculinario = interesculinario;
+    public void setInteresCulinario(InteresCulinarioEnum interesCulinario) {
+        this.interesCulinario = interesCulinario;
     }
 
     public List<EventoGastronomico> getEventos() {

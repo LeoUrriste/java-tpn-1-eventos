@@ -9,11 +9,15 @@ public class Comedor {
 
 
 
-    public void setEventos(List<EventoGastronomico> eventos) {
-        this.eventos = eventos;
-    }
-
     public List<EventoGastronomico> getEventos() {
         return eventos;
     }
+
+
+    public void setEventos(List<EventoGastronomico> eventos) {
+
+        this.eventos = eventos;
+    }
+
+
 }

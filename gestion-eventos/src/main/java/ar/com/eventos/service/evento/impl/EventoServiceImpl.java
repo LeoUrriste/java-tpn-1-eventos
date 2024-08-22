@@ -62,6 +62,8 @@ public class EventoServiceImpl implements EventoService {
         sc.nextLine();
         nuevoEvento.setUbicacion(ubicacionEvento);
 
+
+
         System.out.println("Evento creado");
 
         return nuevoEvento;

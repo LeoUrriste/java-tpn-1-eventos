@@ -3,6 +3,7 @@ package ar.com.eventos.service.opciones.impl;
 import ar.com.eventos.service.comedor.ComedorService;
 import ar.com.eventos.service.evento.EventoService;
 import ar.com.eventos.service.opciones.OpcionesService;
+import ar.com.eventos.service.participante.ParticipanteService;
 
 import java.util.Scanner;
 
@@ -10,11 +11,13 @@ public class OpcionesServiceimpl implements OpcionesService {
 
     private EventoService eventoService;
     private ComedorService comedorService;
+    private ParticipanteService participanteService;
 
 
-    public OpcionesServiceimpl(EventoService eventoService, ComedorService comedorService) {
+    public OpcionesServiceimpl(EventoService eventoService, ComedorService comedorService, ParticipanteService participanteService) {
         this.eventoService = eventoService;
         this.comedorService = comedorService;
+        this.participanteService = participanteService;
     }
 
 
@@ -25,7 +28,7 @@ public class OpcionesServiceimpl implements OpcionesService {
         do {
             System.out.println("Ingrese opcion: \n");
             System.out.println("1. Crear evento");
-            System.out.println("2. Inscripcion de participante");
+            System.out.println("2. Registar participante");
             System.out.println("3. Gestion de Chef");
             System.out.println("4. Reseñas de eventos");
             System.out.println("5. Dejar reseña de un evento");
@@ -41,7 +44,7 @@ public class OpcionesServiceimpl implements OpcionesService {
                     eventoService.crearEvento();
                     break;
                 case 2:
-
+                    participanteService.registarParticipante();
                     break;
                 case 3:
 
