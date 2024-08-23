@@ -28,21 +28,21 @@ public class ParticipanteServiceImpl implements ParticipanteService {
         sc.nextLine();
         participanteNuevo.setApellido(apellidoParticipante);
 
-//        System.out.println("Ingrese su interes culinario: ");
-//        System.out.println("1. Italiana");
-//        System.out.println("2. Mexicana");
-//        System.out.println("3. Vegana");
-//        int interes = sc.nextInt();
-//        sc.nextLine();
+        System.out.println("Ingrese su interes culinario: ");
+        System.out.println("1. Italiana");
+        System.out.println("2. Mexicana");
+        System.out.println("3. Vegana");
+        int interes = sc.nextInt();
+        sc.nextLine();
 
-//        participanteNuevo.setInteresCulinario(
-//                switch (interes){
-//                    case 1 -> interesCulinarioEnum.ITALIANA;
-//                    case 2 -> interesCulinarioEnum.MEXICANA;
-//                    case 3 -> interesCulinarioEnum.VEGANA;
-//                    default -> null;
-//                }
-//        );
+        participanteNuevo.setInteresCulinario(
+                switch (interes){
+                    case 1 -> InteresCulinarioEnum.ITALIANA;
+                    case 2 -> InteresCulinarioEnum.MEXICANA;
+                    case 3 -> InteresCulinarioEnum.VEGANA;
+                    default -> null;
+                }
+        );
 
         return participanteNuevo;
 

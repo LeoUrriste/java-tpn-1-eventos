@@ -63,4 +63,21 @@ public class EventoGastronomico {
     public void setParticipantes(Map<Long, Participante> participantes) {
         this.participantes = participantes;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        return stringBuilder.append("Id: ")
+                .append(this.getIdEvento()).append("\n")
+                .append("Nombre: ")
+                .append(this.getNombre()).append("\n")
+                .append("Descripcion: ")
+                .append(this.getDescripcion()).append("\n")
+                .append("Fecha: ")
+                .append(this.getFechaYHora()).append("\n")
+                .append("Ubicacion: ")
+                .append(this.getUbicacion()).append("\n")
+                .append("------------------------------------\n")
+                .toString();
+    }
 }

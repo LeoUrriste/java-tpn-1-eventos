@@ -1,5 +1,6 @@
 package ar.com.eventos.service.evento.impl;
 
+import ar.com.eventos.domain.Comedor;
 import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.service.evento.EventoService;
 
@@ -11,6 +12,11 @@ import java.util.UUID;
 
 public class EventoServiceImpl implements EventoService {
 
+    Comedor comedor;
+
+    public EventoServiceImpl(Comedor comedor) {
+        this.comedor = comedor;
+    }
 
     @Override
     public EventoGastronomico crearEvento() {
@@ -65,8 +71,18 @@ public class EventoServiceImpl implements EventoService {
 
 
         System.out.println("Evento creado");
-
+        comedor.getEventos().add(nuevoEvento);
         return nuevoEvento;
 
     }
+
+    @Override
+    public void listarEventos() {
+        System.out.println("Lista de eventos");
+        for (EventoGastronomico eventoGastronomico : this.comedor.getEventos()) {
+            System.out.println(eventoGastronomico.toString());
+        }
+
+    }
+
 }

@@ -8,5 +8,7 @@ public interface EventoService {
 
     EventoGastronomico crearEvento();
 
+    void listarEventos();
+
 
 }

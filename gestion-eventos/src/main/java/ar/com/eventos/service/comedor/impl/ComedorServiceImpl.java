@@ -18,4 +18,6 @@ public class ComedorServiceImpl implements ComedorService {
     public List<EventoGastronomico> getEventos() {
         return this.comedor.getEventos();
     }
+
+
 }

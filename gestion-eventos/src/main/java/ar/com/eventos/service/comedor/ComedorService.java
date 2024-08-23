@@ -7,6 +7,8 @@ import java.util.List;
 public interface ComedorService {
 
      List<EventoGastronomico> getEventos();
+
+
 }
 
 
