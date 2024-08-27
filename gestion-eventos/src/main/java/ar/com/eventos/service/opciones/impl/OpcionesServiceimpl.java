@@ -13,14 +13,14 @@ import java.util.UUID;
 public class OpcionesServiceimpl implements OpcionesService {
 
     private EventoService eventoService;
-    //private ComedorService comedorService;
+    private ComedorService comedorService;
     private ParticipanteService participanteService;
     private ChefService chefService;
 
 
     public OpcionesServiceimpl(EventoService eventoService, ComedorService comedorService, ParticipanteService participanteService, ChefService chefService) {
         this.eventoService = eventoService;
-        //this.comedorService = comedorService;
+        this.comedorService = comedorService;
         this.participanteService = participanteService;
         this.chefService = chefService;
     }

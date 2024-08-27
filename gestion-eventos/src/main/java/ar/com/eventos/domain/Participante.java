@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class Participante {
+public class Participante extends EventoGastronomico {
     private Long dniParticipante;
     private String nombre;
     private String apellido;

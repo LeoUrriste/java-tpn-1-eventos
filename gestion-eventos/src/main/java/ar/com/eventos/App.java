@@ -27,8 +27,8 @@ public class App
         Comedor comedor = new Comedor();
         Participante participante = new Participante();
         EventoGastronomico eventoGastronomico = new EventoGastronomico();
-        EventoService eventoService = new EventoServiceImpl(comedor);
         ComedorService comedorService = new ComedorServiceImpl();
+        EventoService eventoService = new EventoServiceImpl(comedor) ;
         ParticipanteService participanteService = new ParticipanteServiceImpl(eventoGastronomico,participante);
         ChefService chefService = new ChefServiceImpl();
 

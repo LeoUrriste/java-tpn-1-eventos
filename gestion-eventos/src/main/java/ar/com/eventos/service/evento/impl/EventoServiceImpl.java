@@ -4,6 +4,7 @@ import ar.com.eventos.domain.Comedor;
 import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.domain.Participante;
 import ar.com.eventos.domain.Reseña;
+import ar.com.eventos.service.comedor.ComedorService;
 import ar.com.eventos.service.evento.EventoService;
 
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class EventoServiceImpl implements EventoService {
+
 
 
     Comedor comedor;
@@ -94,32 +96,16 @@ public class EventoServiceImpl implements EventoService {
 
     @Override
     public void inscribirParticipanteAlEvento(UUID idEvento, Long dniParticipante) {
-        Participante participante = null;
-        boolean esEventoEncontrado = Boolean.FALSE;
-        boolean existeElParticipante = Boolean.FALSE;
+        Participante participante = new Participante();
+        boolean existeEvento = Boolean.FALSE;
 
-        for (EventoGastronomico evento: comedor.getEventos()){
-            if (evento.getParticipantes().containsKey(dniParticipante)){
-                participante = evento.getParticipantes().get(dniParticipante);
-                existeElParticipante = Boolean.TRUE;
-                break;
-            }
-        }
-        if (!existeElParticipante) {
-            throw new NoSuchElementException("No existe el participante");
-        }
-        for (EventoGastronomico evento: comedor.getEventos()){
+        for (EventoGastronomico evento : comedor.getEventos()){
             if (evento.getIdEvento().equals(idEvento)){
-                participante.getEventos().add(evento);
+                participante.getEventos().add(participante);
                 evento.getParticipantes().put(participante.getDniParticipante(),participante);
-                esEventoEncontrado = Boolean.TRUE;
+                existeEvento = Boolean.TRUE;
                 break;
             }
-        }
-        if (!esEventoEncontrado){
-            throw new NoSuchElementException("No existe el evento");
-        }else {
-            System.out.println("Participante asignado al evento");
         }
     }
 
