@@ -2,21 +2,27 @@ package ar.com.eventos.service.evento.impl;
 
 import ar.com.eventos.domain.Comedor;
 import ar.com.eventos.domain.EventoGastronomico;
+import ar.com.eventos.domain.Participante;
+import ar.com.eventos.domain.Reseña;
 import ar.com.eventos.service.evento.EventoService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.UUID;
 
 public class EventoServiceImpl implements EventoService {
 
+
     Comedor comedor;
 
     public EventoServiceImpl(Comedor comedor) {
         this.comedor = comedor;
+
     }
+
 
     @Override
     public EventoGastronomico crearEvento() {
@@ -84,5 +90,52 @@ public class EventoServiceImpl implements EventoService {
         }
 
     }
+
+
+    @Override
+    public void inscribirParticipanteAlEvento(UUID idEvento, Long dniParticipante) {
+        Participante participante = null;
+        boolean esEventoEncontrado = Boolean.FALSE;
+        boolean existeElParticipante = Boolean.FALSE;
+
+        for (EventoGastronomico evento: comedor.getEventos()){
+            if (evento.getParticipantes().containsKey(dniParticipante)){
+                participante = evento.getParticipantes().get(dniParticipante);
+                existeElParticipante = Boolean.TRUE;
+                break;
+            }
+        }
+        if (!existeElParticipante) {
+            throw new NoSuchElementException("No existe el participante");
+        }
+        for (EventoGastronomico evento: comedor.getEventos()){
+            if (evento.getIdEvento().equals(idEvento)){
+                participante.getEventos().add(evento);
+                evento.getParticipantes().put(participante.getDniParticipante(),participante);
+                esEventoEncontrado = Boolean.TRUE;
+                break;
+            }
+        }
+        if (!esEventoEncontrado){
+            throw new NoSuchElementException("No existe el evento");
+        }else {
+            System.out.println("Participante asignado al evento");
+        }
+    }
+
+
+    @Override
+    public Reseña agregarResena(UUID idEvento, Long dniParticipante) {
+
+
+        System.out.println("Ingresar ID del evento");
+
+        System.out.println("Ingresar ID participante");
+
+        return null;
+    }
+
+
+
 
 }

@@ -6,7 +6,9 @@ import ar.com.eventos.service.evento.EventoService;
 import ar.com.eventos.service.opciones.OpcionesService;
 import ar.com.eventos.service.participante.ParticipanteService;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class OpcionesServiceimpl implements OpcionesService {
 
@@ -33,10 +35,11 @@ public class OpcionesServiceimpl implements OpcionesService {
             System.out.println("1. Crear evento");
             System.out.println("2. Registar participante");
             System.out.println("3. Registrar Chef");
-            System.out.println("4. Reseñas de eventos");
-            System.out.println("5. Dejar reseña de un evento");
-            System.out.println("6. Listar eventos");
-            System.out.println("7. salir");
+            System.out.println("4. Inscribir participante al evento");
+            System.out.println("5. Reseñas de eventos");
+            System.out.println("6. Dejar reseña de un evento");
+            System.out.println("7. Listar eventos");
+            System.out.println("8. salir");
 
 
             opcion = sc.nextInt();
@@ -53,15 +56,28 @@ public class OpcionesServiceimpl implements OpcionesService {
                     chefService.registrarChef();
                     break;
                 case 4:
+                    System.out.println("Ingresar ID del Evento");
+                    String idEvento = sc.nextLine();
+                    System.out.println("Ingresar dni del participante");
+                    Long dniParticipante = sc.nextLong();
+                    sc.nextLine();
+                    try {
+                        eventoService.inscribirParticipanteAlEvento(UUID.fromString(idEvento),dniParticipante);
+                    }catch (NoSuchElementException e){
+                        System.out.println(e.getMessage());
+                    }
 
                     break;
                 case 5:
 
                     break;
                 case 6:
-                    eventoService.listarEventos();
+
                     break;
                 case 7:
+                    eventoService.listarEventos();
+                    break;
+                case 8:
 
                     break;
                 default:
@@ -69,7 +85,7 @@ public class OpcionesServiceimpl implements OpcionesService {
             }
 
 
-        }while (opcion != 7);
+        }while (opcion != 8);
 
         System.out.println("\n Finalizo aplicacion");
 

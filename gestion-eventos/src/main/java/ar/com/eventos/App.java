@@ -1,6 +1,8 @@
 package ar.com.eventos;
 
 import ar.com.eventos.domain.Comedor;
+import ar.com.eventos.domain.EventoGastronomico;
+import ar.com.eventos.domain.Participante;
 import ar.com.eventos.service.chef.ChefService;
 import ar.com.eventos.service.chef.impl.ChefServiceImpl;
 import ar.com.eventos.service.comedor.ComedorService;
@@ -23,9 +25,11 @@ public class App
     public static void main( String[] args ) {
 
         Comedor comedor = new Comedor();
+        Participante participante = new Participante();
+        EventoGastronomico eventoGastronomico = new EventoGastronomico();
         EventoService eventoService = new EventoServiceImpl(comedor);
         ComedorService comedorService = new ComedorServiceImpl();
-        ParticipanteService participanteService = new ParticipanteServiceImpl();
+        ParticipanteService participanteService = new ParticipanteServiceImpl(eventoGastronomico,participante);
         ChefService chefService = new ChefServiceImpl();
 
 

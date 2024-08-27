@@ -3,19 +3,31 @@ package ar.com.eventos.service.participante.impl;
 import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.domain.Participante;
 import ar.com.eventos.enumeration.InteresCulinarioEnum;
+import ar.com.eventos.service.evento.impl.EventoServiceImpl;
 import ar.com.eventos.service.participante.ParticipanteService;
 
 import java.util.Scanner;
-import java.util.UUID;
+
 
 public class ParticipanteServiceImpl implements ParticipanteService {
+
+    EventoGastronomico eventoGastronomico;
+    Participante participantes;
+
+    public ParticipanteServiceImpl(EventoGastronomico eventoGastronomico, Participante participantes) {
+        this.eventoGastronomico = eventoGastronomico;
+        this.participantes = participantes;
+    }
 
     @Override
     public Participante registarParticipante() {
         Participante participanteNuevo = new Participante();
         Scanner sc = new Scanner(System.in);
 
-        participanteNuevo.setIdParticipante( UUID.randomUUID() );
+        System.out.println("Ingrese DNI del participante");
+        Long dni = sc.nextLong();
+        participanteNuevo.setDniParticipante(dni);
+        sc.nextLine();
 
 
         System.out.println("Ingrese nombre del participante: ");
@@ -43,8 +55,11 @@ public class ParticipanteServiceImpl implements ParticipanteService {
                     default -> null;
                 }
         );
+        eventoGastronomico.getParticipantes().put(dni,participanteNuevo);
 
         return participanteNuevo;
 
+
     }
+
 }

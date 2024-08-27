@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class Participante {
-    private UUID idParticipante;
+    private Long dniParticipante;
     private String nombre;
     private String apellido;
     private InteresCulinarioEnum interesCulinario;
@@ -16,12 +16,12 @@ public class Participante {
 
 
 
-    public UUID getIdParticipante() {
-        return idParticipante;
+    public Long getDniParticipante() {
+        return dniParticipante;
     }
 
-    public void setIdParticipante(UUID idParticipante) {
-        this.idParticipante = idParticipante;
+    public void setDniParticipante(Long dniParticipante) {
+        this.dniParticipante = dniParticipante;
     }
 
     public String getNombre() {
