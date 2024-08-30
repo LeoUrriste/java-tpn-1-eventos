@@ -13,7 +13,7 @@ public class EventoGastronomico {
     private String ubicacion;
     //capacidad
     private Map<Long,Participante> participantes = new HashMap();
-
+    private Map<Long, Reseña> resenas = new HashMap<>();
 
 
     public UUID getIdEvento() {
@@ -62,6 +62,14 @@ public class EventoGastronomico {
 
     public void setParticipantes(Map<Long, Participante> participantes) {
         this.participantes = participantes;
+    }
+
+    public Map<Long, Reseña> getResenas() {
+        return resenas;
+    }
+
+    public void setResenas(Map<Long, Reseña> resenas) {
+        this.resenas = resenas;
     }
 
     @Override

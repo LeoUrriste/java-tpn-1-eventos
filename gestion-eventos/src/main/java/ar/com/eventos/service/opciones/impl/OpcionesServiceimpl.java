@@ -5,6 +5,7 @@ import ar.com.eventos.service.comedor.ComedorService;
 import ar.com.eventos.service.evento.EventoService;
 import ar.com.eventos.service.opciones.OpcionesService;
 import ar.com.eventos.service.participante.ParticipanteService;
+import ar.com.eventos.service.reseña.ResenaService;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -16,13 +17,14 @@ public class OpcionesServiceimpl implements OpcionesService {
     private ComedorService comedorService;
     private ParticipanteService participanteService;
     private ChefService chefService;
+    private ResenaService resenaService;
 
-
-    public OpcionesServiceimpl(EventoService eventoService, ComedorService comedorService, ParticipanteService participanteService, ChefService chefService) {
+    public OpcionesServiceimpl(EventoService eventoService, ComedorService comedorService, ParticipanteService participanteService, ChefService chefService, ResenaService resenaService) {
         this.eventoService = eventoService;
         this.comedorService = comedorService;
         this.participanteService = participanteService;
         this.chefService = chefService;
+        this.resenaService = resenaService;
     }
 
 
@@ -72,7 +74,13 @@ public class OpcionesServiceimpl implements OpcionesService {
 
                     break;
                 case 6:
+                    System.out.println("Ingresar ID del Evento");
+                    idEvento = sc.nextLine();
+                    System.out.println("Ingresar dni del participante");
+                    dniParticipante = sc.nextLong();
+                    sc.nextLine();
 
+                    resenaService.agregarResena(UUID.fromString(idEvento),dniParticipante);
                     break;
                 case 7:
                     eventoService.listarEventos();
@@ -91,17 +99,7 @@ public class OpcionesServiceimpl implements OpcionesService {
 
         sc.close();
 
-        //creacion de eventos
 
-        //incripcion de participantes
-
-        //gestion de chef
-
-        //reseñas de eventos
-
-        //listar eventos en base a una fecha
-
-        //
 
     }
 }

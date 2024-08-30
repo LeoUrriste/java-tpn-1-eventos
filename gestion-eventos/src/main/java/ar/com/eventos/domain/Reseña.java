@@ -1,8 +1,6 @@
 package ar.com.eventos.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class Reseña {
     private UUID idResena;
@@ -10,7 +8,10 @@ public class Reseña {
     private Integer calificacion;
     private List<Participante> participantes = new ArrayList<>();
     private List<EventoGastronomico> eventos = new ArrayList<>();
+    private Map<Long, Reseña> resenas = new HashMap<>();
 
+        public Reseña(UUID idEvento, Long dniParticipante) {
+    }
 
 
     public UUID getIdResena() {

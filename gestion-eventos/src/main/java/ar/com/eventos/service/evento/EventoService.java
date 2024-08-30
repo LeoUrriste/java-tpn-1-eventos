@@ -16,7 +16,7 @@ public interface EventoService {
     void inscribirParticipanteAlEvento(UUID idEvento, Long dniParticipante);
 
 
-    Reseña agregarResena(UUID idEvento, Long dniParticipante);
+   // Reseña agregarResena(UUID idEvento, Long dniParticipante);
 
 
 

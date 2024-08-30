@@ -3,14 +3,11 @@ package ar.com.eventos.service.evento.impl;
 import ar.com.eventos.domain.Comedor;
 import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.domain.Participante;
-import ar.com.eventos.domain.Reseña;
-import ar.com.eventos.service.comedor.ComedorService;
 import ar.com.eventos.service.evento.EventoService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -104,24 +101,10 @@ public class EventoServiceImpl implements EventoService {
                 participante.getEventos().add(participante);
                 evento.getParticipantes().put(participante.getDniParticipante(),participante);
                 existeEvento = Boolean.TRUE;
+                System.out.println("Participante inscripto");
                 break;
             }
         }
     }
-
-
-    @Override
-    public Reseña agregarResena(UUID idEvento, Long dniParticipante) {
-
-
-        System.out.println("Ingresar ID del evento");
-
-        System.out.println("Ingresar ID participante");
-
-        return null;
-    }
-
-
-
 
 }

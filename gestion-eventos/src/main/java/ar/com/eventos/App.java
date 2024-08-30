@@ -13,6 +13,8 @@ import ar.com.eventos.service.opciones.OpcionesService;
 import ar.com.eventos.service.opciones.impl.OpcionesServiceimpl;
 import ar.com.eventos.service.participante.ParticipanteService;
 import ar.com.eventos.service.participante.impl.ParticipanteServiceImpl;
+import ar.com.eventos.service.reseña.ResenaService;
+import ar.com.eventos.service.reseña.impl.ReseñaServiceImpl;
 
 import java.util.Scanner;
 
@@ -31,9 +33,9 @@ public class App
         EventoService eventoService = new EventoServiceImpl(comedor) ;
         ParticipanteService participanteService = new ParticipanteServiceImpl(eventoGastronomico,participante);
         ChefService chefService = new ChefServiceImpl();
+        ResenaService resenaService = new ReseñaServiceImpl();
 
-
-        OpcionesService opcionesService = new OpcionesServiceimpl(eventoService, comedorService, participanteService, chefService);
+        OpcionesService opcionesService = new OpcionesServiceimpl(eventoService, comedorService, participanteService, chefService, resenaService);
         Scanner sc = new Scanner(System.in);
 
         opcionesService.mostrarOpciones(sc);
