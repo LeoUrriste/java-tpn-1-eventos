@@ -4,4 +4,6 @@ import ar.com.eventos.domain.Chef;
 
 public interface ChefService {
     Chef registrarChef();
+
+
 }

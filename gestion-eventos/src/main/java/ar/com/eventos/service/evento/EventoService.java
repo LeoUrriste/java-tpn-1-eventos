@@ -1,5 +1,6 @@
 package ar.com.eventos.service.evento;
 
+import ar.com.eventos.domain.Chef;
 import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.domain.Reseña;
 
@@ -15,8 +16,10 @@ public interface EventoService {
 
     void inscribirParticipanteAlEvento(UUID idEvento, Long dniParticipante);
 
+    void asignarCheftAEvento(UUID idEvento, String nombre);
 
-   // Reseña agregarResena(UUID idEvento, Long dniParticipante);
+
+
 
 
 

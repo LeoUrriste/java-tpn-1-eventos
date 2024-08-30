@@ -38,7 +38,7 @@ public class OpcionesServiceimpl implements OpcionesService {
             System.out.println("2. Registar participante");
             System.out.println("3. Registrar Chef");
             System.out.println("4. Inscribir participante al evento");
-            System.out.println("5. Reseñas de eventos");
+            System.out.println("5. Asignar Cheft a evento");
             System.out.println("6. Dejar reseña de un evento");
             System.out.println("7. Listar eventos");
             System.out.println("8. salir");
@@ -71,7 +71,11 @@ public class OpcionesServiceimpl implements OpcionesService {
 
                     break;
                 case 5:
-
+                    System.out.println("Ingresar ID del Evento");
+                    idEvento = sc.nextLine();
+                    System.out.println("Ingresar nombre del Cheft");
+                    String nombre = sc.nextLine();
+                    eventoService.asignarCheftAEvento(UUID.fromString(idEvento),nombre);
                     break;
                 case 6:
                     System.out.println("Ingresar ID del Evento");

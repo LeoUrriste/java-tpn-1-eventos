@@ -1,8 +1,8 @@
 package ar.com.eventos.service.chef.impl;
 
 import ar.com.eventos.domain.Chef;
+import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.enumeration.EspecialidadEnum;
-import ar.com.eventos.enumeration.InteresCulinarioEnum;
 import ar.com.eventos.service.chef.ChefService;
 
 import java.util.Scanner;
@@ -47,4 +47,5 @@ public class ChefServiceImpl implements ChefService {
         chefs.getChefts().add(nuevoChef);
         return nuevoChef;
     }
+
 }

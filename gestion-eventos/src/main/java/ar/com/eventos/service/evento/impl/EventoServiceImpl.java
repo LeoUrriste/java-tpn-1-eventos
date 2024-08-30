@@ -1,5 +1,6 @@
 package ar.com.eventos.service.evento.impl;
 
+import ar.com.eventos.domain.Chef;
 import ar.com.eventos.domain.Comedor;
 import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.domain.Participante;
@@ -12,7 +13,6 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class EventoServiceImpl implements EventoService {
-
 
 
     Comedor comedor;
@@ -28,7 +28,7 @@ public class EventoServiceImpl implements EventoService {
         EventoGastronomico nuevoEvento = new EventoGastronomico();
         Scanner sc = new Scanner(System.in);
 
-        nuevoEvento.setIdEvento( UUID.randomUUID() );
+        nuevoEvento.setIdEvento(UUID.randomUUID());
 
 
         System.out.println("Ingresar nombre del evento:");
@@ -58,12 +58,12 @@ public class EventoServiceImpl implements EventoService {
         int minutos = sc.nextInt();
 
         //creamos objetos fecha y horario
-        LocalDate fecha = LocalDate.of(ano,mes,dia);
-        LocalTime horario = LocalTime.of(hora,minutos);
+        LocalDate fecha = LocalDate.of(ano, mes, dia);
+        LocalTime horario = LocalTime.of(hora, minutos);
 
         //combino fecha y horario
         LocalDateTime fechaYHorario = LocalDateTime.of(fecha, horario);
-        System.out.println("Ingreso: "+fecha +" "+horario);
+        System.out.println("Ingreso: " + fecha + " " + horario);
         sc.nextLine();
         nuevoEvento.setFechaYHora(fechaYHorario);
 
@@ -72,7 +72,6 @@ public class EventoServiceImpl implements EventoService {
         String ubicacionEvento = sc.nextLine();
         sc.nextLine();
         nuevoEvento.setUbicacion(ubicacionEvento);
-
 
 
         System.out.println("Evento creado");
@@ -96,10 +95,10 @@ public class EventoServiceImpl implements EventoService {
         Participante participante = new Participante();
         boolean existeEvento = Boolean.FALSE;
 
-        for (EventoGastronomico evento : comedor.getEventos()){
-            if (evento.getIdEvento().equals(idEvento)){
+        for (EventoGastronomico evento : comedor.getEventos()) {
+            if (evento.getIdEvento().equals(idEvento)) {
                 participante.getEventos().add(participante);
-                evento.getParticipantes().put(participante.getDniParticipante(),participante);
+                evento.getParticipantes().put(participante.getDniParticipante(), participante);
                 existeEvento = Boolean.TRUE;
                 System.out.println("Participante inscripto");
                 break;
@@ -107,4 +106,22 @@ public class EventoServiceImpl implements EventoService {
         }
     }
 
+
+    @Override
+    public void asignarCheftAEvento(UUID idEvento, String nombre) {
+        Chef chef = new Chef();
+        EventoGastronomico evento = new EventoGastronomico();
+
+        if (evento == null) {
+            System.out.println("Evento no encontrado.");
+
+            if (chef == null) {
+                System.out.println("Chef no encontrado.");
+
+
+                evento.getChefts().add(chef);
+
+            }
+        }System.out.println("Chef asignado");
+    }
 }

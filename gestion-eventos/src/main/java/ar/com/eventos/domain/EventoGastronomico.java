@@ -1,9 +1,7 @@
 package ar.com.eventos.domain;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class EventoGastronomico {
     private UUID idEvento;
@@ -14,7 +12,15 @@ public class EventoGastronomico {
     //capacidad
     private Map<Long,Participante> participantes = new HashMap();
     private Map<Long, Reseña> resenas = new HashMap<>();
+    private List<Chef> chefts = new ArrayList<>();
 
+    public List<Chef> getChefts() {
+        return chefts;
+    }
+
+    public void setChefts(List<Chef> chefts) {
+        this.chefts = chefts;
+    }
 
     public UUID getIdEvento() {
         return idEvento;
