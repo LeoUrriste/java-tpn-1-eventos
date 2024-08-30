@@ -11,7 +11,7 @@ public class Chef {
     private String nombre;
     private EspecialidadEnum especialidad;
     private List<EventoGastronomico> eventos = new ArrayList();
-
+    private List<Chef> chefts = new ArrayList<>();
 
     public UUID getIdChef() {
         return idChef;
@@ -43,5 +43,13 @@ public class Chef {
 
     public void setEventos(List<EventoGastronomico> eventos) {
         this.eventos = eventos;
+    }
+
+    public List<Chef> getChefts() {
+        return chefts;
+    }
+
+    public void setChefts(List<Chef> chefts) {
+        this.chefts = chefts;
     }
 }
