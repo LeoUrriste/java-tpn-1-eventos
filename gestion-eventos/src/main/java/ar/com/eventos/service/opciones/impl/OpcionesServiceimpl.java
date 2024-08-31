@@ -1,6 +1,5 @@
 package ar.com.eventos.service.opciones.impl;
 
-import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.service.archivos.ArchivoEventosService;
 import ar.com.eventos.service.chef.ChefService;
 import ar.com.eventos.service.comedor.ComedorService;
@@ -9,12 +8,9 @@ import ar.com.eventos.service.opciones.OpcionesService;
 import ar.com.eventos.service.participante.ParticipanteService;
 import ar.com.eventos.service.reseña.ResenaService;
 
-import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeParseException;
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.UUID;
@@ -139,8 +135,6 @@ public class OpcionesServiceimpl implements OpcionesService {
         System.out.println("\n Finalizo aplicacion");
 
         sc.close();
-
-
 
     }
 }

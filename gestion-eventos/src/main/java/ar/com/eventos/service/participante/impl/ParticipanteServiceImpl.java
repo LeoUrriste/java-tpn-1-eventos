@@ -3,7 +3,6 @@ package ar.com.eventos.service.participante.impl;
 import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.domain.Participante;
 import ar.com.eventos.enumeration.InteresCulinarioEnum;
-import ar.com.eventos.service.evento.impl.EventoServiceImpl;
 import ar.com.eventos.service.participante.ParticipanteService;
 
 import java.util.Scanner;
@@ -58,8 +57,6 @@ public class ParticipanteServiceImpl implements ParticipanteService {
         eventoGastronomico.getParticipantes().put(dni,participanteNuevo);
 
         return participanteNuevo;
-
-
     }
 
 }

@@ -113,23 +113,6 @@ public class EventoServiceImpl implements EventoService {
     }
 
 
-
-
-//        Participante participante = new Participante();
-//        boolean existeEvento = Boolean.FALSE;
-//
-//        for (EventoGastronomico evento : comedor.getEventos()) {
-//            if (evento.getIdEvento().equals(idEvento)) {
-//                participante.getEventos().add(participante);
-//                evento.getParticipantes().put(participante.getDniParticipante(), participante);
-//                existeEvento = Boolean.TRUE;
-//                System.out.println("Participante inscripto");
-//                break;
-//            }
-//        }
-//  }
-
-
     @Override
     public void asignarCheftAEvento(UUID idEvento, String nombre) {
         Chef chef = new Chef();

@@ -1,7 +1,6 @@
 package ar.com.eventos.service.chef.impl;
 
 import ar.com.eventos.domain.Chef;
-import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.enumeration.EspecialidadEnum;
 import ar.com.eventos.service.chef.ChefService;
 
