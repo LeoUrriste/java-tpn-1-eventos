@@ -4,6 +4,8 @@ import ar.com.eventos.domain.Chef;
 import ar.com.eventos.domain.Comedor;
 import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.domain.Participante;
+import ar.com.eventos.service.archivos.ArchivoEventosService;
+import ar.com.eventos.service.archivos.impl.ArcrivoEventosServiceImpl;
 import ar.com.eventos.service.chef.ChefService;
 import ar.com.eventos.service.chef.impl.ChefServiceImpl;
 import ar.com.eventos.service.comedor.ComedorService;
@@ -35,8 +37,9 @@ public class App
         ParticipanteService participanteService = new ParticipanteServiceImpl(eventoGastronomico,participante);
         ChefService chefService = new ChefServiceImpl(chef);
         ResenaService resenaService = new ReseñaServiceImpl();
+        ArchivoEventosService archivoEventosService = new ArcrivoEventosServiceImpl();
 
-        OpcionesService opcionesService = new OpcionesServiceimpl(eventoService, comedorService, participanteService, chefService, resenaService);
+        OpcionesService opcionesService = new OpcionesServiceimpl(eventoService, comedorService, participanteService, chefService, resenaService, archivoEventosService);
         Scanner sc = new Scanner(System.in);
 
         opcionesService.mostrarOpciones(sc);

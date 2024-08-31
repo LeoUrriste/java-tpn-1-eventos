@@ -9,7 +9,7 @@ public class EventoGastronomico {
     private String descripcion;
     private LocalDateTime fechaYHora;
     private String ubicacion;
-    //capacidad
+
     private Map<Long,Participante> participantes = new HashMap();
     private Map<Long, Reseña> resenas = new HashMap<>();
     private List<Chef> chefts = new ArrayList<>();

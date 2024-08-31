@@ -1,5 +1,7 @@
 package ar.com.eventos.service.opciones.impl;
 
+import ar.com.eventos.domain.EventoGastronomico;
+import ar.com.eventos.service.archivos.ArchivoEventosService;
 import ar.com.eventos.service.chef.ChefService;
 import ar.com.eventos.service.comedor.ComedorService;
 import ar.com.eventos.service.evento.EventoService;
@@ -12,6 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.UUID;
@@ -23,13 +26,15 @@ public class OpcionesServiceimpl implements OpcionesService {
     private ParticipanteService participanteService;
     private ChefService chefService;
     private ResenaService resenaService;
+    private ArchivoEventosService archivoEventosService;
 
-    public OpcionesServiceimpl(EventoService eventoService, ComedorService comedorService, ParticipanteService participanteService, ChefService chefService, ResenaService resenaService) {
+    public OpcionesServiceimpl(EventoService eventoService, ComedorService comedorService, ParticipanteService participanteService, ChefService chefService, ResenaService resenaService, ArchivoEventosService archivoEventosService) {
         this.eventoService = eventoService;
         this.comedorService = comedorService;
         this.participanteService = participanteService;
         this.chefService = chefService;
         this.resenaService = resenaService;
+        this.archivoEventosService = archivoEventosService;
     }
 
 
@@ -47,7 +52,8 @@ public class OpcionesServiceimpl implements OpcionesService {
             System.out.println("6. Dejar reseña de un evento");
             System.out.println("7. Listar eventos");
             System.out.println("8. Listar eventos por fecha");
-            System.out.println("9. salir");
+            System.out.println("9. Lista eventos completos");
+            System.out.println("10. salir");
 
 
             opcion = sc.nextInt();
@@ -118,13 +124,17 @@ public class OpcionesServiceimpl implements OpcionesService {
 
                     break;
                 case 9:
+                    archivoEventosService.exportarEventosCsv();
+                    break;
+
+                case 10:
                     break;
                 default:
                     break;
             }
 
 
-        }while (opcion != 9);
+        }while (opcion != 10);
 
         System.out.println("\n Finalizo aplicacion");
 
