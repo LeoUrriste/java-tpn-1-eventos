@@ -7,6 +7,11 @@ import ar.com.eventos.service.opciones.OpcionesService;
 import ar.com.eventos.service.participante.ParticipanteService;
 import ar.com.eventos.service.reseña.ResenaService;
 
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.UUID;
@@ -41,7 +46,8 @@ public class OpcionesServiceimpl implements OpcionesService {
             System.out.println("5. Asignar Cheft a evento");
             System.out.println("6. Dejar reseña de un evento");
             System.out.println("7. Listar eventos");
-            System.out.println("8. salir");
+            System.out.println("8. Listar eventos por fecha");
+            System.out.println("9. salir");
 
 
             opcion = sc.nextInt();
@@ -68,7 +74,6 @@ public class OpcionesServiceimpl implements OpcionesService {
                     }catch (NoSuchElementException e){
                         System.out.println(e.getMessage());
                     }
-
                     break;
                 case 5:
                     System.out.println("Ingresar ID del Evento");
@@ -90,14 +95,36 @@ public class OpcionesServiceimpl implements OpcionesService {
                     eventoService.listarEventos();
                     break;
                 case 8:
+                    //solicito fecha
+                    System.out.println("Ingresar fecha a partir de cuando ver los eventos\n");
+                    System.out.println("Ingresar año: xxxx");
+                    int ano = sc.nextInt();
+                    System.out.println("Ingresar mes: xx");
+                    int mes = sc.nextInt();
+                    System.out.println("Ingresar dia: xx");
+                    int dia = sc.nextInt();
+                    //solicito horario
+                    System.out.println("Ingresar hora (0-23): ");
+                    int hora = sc.nextInt();
+                    System.out.println("Ingresar minutos: ");
+                    int minutos = sc.nextInt();
 
+                    LocalDate fecha1 = LocalDate.of(ano, mes, dia);
+                    LocalTime horario = LocalTime.of(hora, minutos);
+
+                    LocalDateTime fechaYHorario = LocalDateTime.of(fecha1, horario);
+
+                    eventoService.listarEventoPorFecha(fechaYHorario);
+
+                    break;
+                case 9:
                     break;
                 default:
                     break;
             }
 
 
-        }while (opcion != 8);
+        }while (opcion != 9);
 
         System.out.println("\n Finalizo aplicacion");
 

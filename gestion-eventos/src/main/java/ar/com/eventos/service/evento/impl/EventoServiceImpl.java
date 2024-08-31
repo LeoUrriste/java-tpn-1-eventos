@@ -124,4 +124,14 @@ public class EventoServiceImpl implements EventoService {
             }
         }System.out.println("Chef asignado");
     }
+
+    @Override
+    public void listarEventoPorFecha(LocalDateTime fecha) {
+        System.out.println("Eventos a partir de " + fecha + ":");
+        for (EventoGastronomico evento : this.comedor.getEventos()) {
+            if (evento.getFechaYHora().isEqual(fecha) || evento.getFechaYHora().isAfter(fecha)) {
+                System.out.println(evento.toString());
+            }
+        }
+    }
 }
