@@ -93,18 +93,41 @@ public class EventoServiceImpl implements EventoService {
     @Override
     public void inscribirParticipanteAlEvento(UUID idEvento, Long dniParticipante) {
         Participante participante = new Participante();
-        boolean existeEvento = Boolean.FALSE;
 
         for (EventoGastronomico evento : comedor.getEventos()) {
             if (evento.getIdEvento().equals(idEvento)) {
-                participante.getEventos().add(participante);
-                evento.getParticipantes().put(participante.getDniParticipante(), participante);
-                existeEvento = Boolean.TRUE;
-                System.out.println("Participante inscripto");
-                break;
+                if (evento.getParticipantes().size() < 20) {
+                    if (!evento.getParticipantes().containsKey(dniParticipante)) {
+                        evento.getParticipantes().put(dniParticipante, participante);
+                        System.out.println("Participante inscrito con éxito.");
+                    } else {
+                        System.out.println("El participante ya está inscrito en el evento.");
+                    }
+                } else {
+                    System.out.println("El evento ha alcanzado el límite de participantes.");
+                }
+                return;
             }
         }
+        System.out.println("Evento no encontrado.");
     }
+
+
+
+
+//        Participante participante = new Participante();
+//        boolean existeEvento = Boolean.FALSE;
+//
+//        for (EventoGastronomico evento : comedor.getEventos()) {
+//            if (evento.getIdEvento().equals(idEvento)) {
+//                participante.getEventos().add(participante);
+//                evento.getParticipantes().put(participante.getDniParticipante(), participante);
+//                existeEvento = Boolean.TRUE;
+//                System.out.println("Participante inscripto");
+//                break;
+//            }
+//        }
+//  }
 
 
     @Override
