@@ -52,7 +52,7 @@ public class OpcionesServiceimpl implements OpcionesService {
             System.out.println("6. Dejar reseña de un evento");
             System.out.println("7. Listar eventos");
             System.out.println("8. Listar eventos por fecha");
-            System.out.println("9. Lista eventos completos");
+            System.out.println("9. Lista eventos cupo completo");
             System.out.println("10. salir");
 
 
