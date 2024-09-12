@@ -107,7 +107,7 @@ public class EventoServiceImpl implements EventoService {
                         System.out.println("El participante ya está inscrito en el evento.");
                     }
                 } else {
-                    System.out.println("El evento ha alcanzado el límite de participantes.");
+                    System.out.println("El evento ha alcanzado el límite de 20 participantes.");
                 }
                 return;
             }

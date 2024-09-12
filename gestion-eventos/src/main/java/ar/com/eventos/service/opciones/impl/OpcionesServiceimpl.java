@@ -66,6 +66,7 @@ public class OpcionesServiceimpl implements OpcionesService {
                     chefService.registrarChef();
                     break;
                 case 4:
+                    System.out.println("Capacidad maxima de participantes 20");
                     System.out.println("Ingresar ID del Evento");
                     String idEvento = sc.nextLine();
                     System.out.println("Ingresar dni del participante");
