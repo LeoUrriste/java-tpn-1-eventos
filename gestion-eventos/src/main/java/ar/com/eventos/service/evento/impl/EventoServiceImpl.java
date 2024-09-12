@@ -4,7 +4,9 @@ import ar.com.eventos.domain.Chef;
 import ar.com.eventos.domain.Comedor;
 import ar.com.eventos.domain.EventoGastronomico;
 import ar.com.eventos.domain.Participante;
+
 import ar.com.eventos.service.evento.EventoService;
+
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,6 +15,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class EventoServiceImpl implements EventoService {
+
 
 
     Comedor comedor;
@@ -114,21 +117,19 @@ public class EventoServiceImpl implements EventoService {
 
 
     @Override
-    public void asignarCheftAEvento(UUID idEvento, String nombre) {
+    public void asignarCheftAEvento(UUID idEvento, Long dniChef) {
+
         Chef chef = new Chef();
-        EventoGastronomico evento = new EventoGastronomico();
 
-        if (evento == null) {
-            System.out.println("Evento no encontrado.");
-
-            if (chef == null) {
-                System.out.println("Chef no encontrado.");
-
-
-                evento.getChefts().add(chef);
+        for (EventoGastronomico eventoGastronomico : comedor.getEventos()){
+            if (eventoGastronomico.getIdEvento().equals(idEvento)){
+                chef.getEventos().add(eventoGastronomico);
+                eventoGastronomico.getChefts().put(chef.getDniChef(), chef);
 
             }
-        }System.out.println("Chef asignado");
+            System.out.println("Chefs asignado");
+        }
+
     }
 
     @Override

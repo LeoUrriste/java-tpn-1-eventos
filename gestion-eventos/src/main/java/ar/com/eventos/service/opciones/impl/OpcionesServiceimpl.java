@@ -80,9 +80,9 @@ public class OpcionesServiceimpl implements OpcionesService {
                 case 5:
                     System.out.println("Ingresar ID del Evento");
                     idEvento = sc.nextLine();
-                    System.out.println("Ingresar nombre del Cheft");
-                    String nombre = sc.nextLine();
-                    eventoService.asignarCheftAEvento(UUID.fromString(idEvento),nombre);
+                    System.out.println("Ingresar dni del Cheft");
+                    Long dniChefs = sc.nextLong();
+                    eventoService.asignarCheftAEvento(UUID.fromString(idEvento),dniChefs);
                     break;
                 case 6:
                     System.out.println("Ingresar ID del Evento");

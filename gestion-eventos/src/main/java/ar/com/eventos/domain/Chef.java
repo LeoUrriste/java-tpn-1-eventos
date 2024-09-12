@@ -4,21 +4,21 @@ import ar.com.eventos.enumeration.EspecialidadEnum;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 
 public class Chef {
-    private UUID idChef;
+    private Long dniChef;
     private String nombre;
     private EspecialidadEnum especialidad;
     private List<EventoGastronomico> eventos = new ArrayList();
     private List<Chef> chefts = new ArrayList<>();
 
-    public UUID getIdChef() {
-        return idChef;
+    public Long getDniChef() {
+        return dniChef;
     }
 
-    public void setIdChef(UUID idChef) {
-        this.idChef = idChef;
+    public void setDniChef(Long dniChef) {
+        this.dniChef = dniChef;
     }
 
     public String getNombre() {

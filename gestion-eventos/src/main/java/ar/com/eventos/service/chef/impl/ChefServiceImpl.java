@@ -5,7 +5,7 @@ import ar.com.eventos.enumeration.EspecialidadEnum;
 import ar.com.eventos.service.chef.ChefService;
 
 import java.util.Scanner;
-import java.util.UUID;
+
 
 public class ChefServiceImpl implements ChefService {
 
@@ -20,7 +20,10 @@ public class ChefServiceImpl implements ChefService {
         Chef nuevoChef = new Chef();
         Scanner sc = new Scanner(System.in);
 
-        nuevoChef.setIdChef(UUID.randomUUID());
+        System.out.println("Ingrese DNI del chefs");
+        Long dni = sc.nextLong();
+        nuevoChef.setDniChef(dni);
+        sc.nextLine();
 
         System.out.println("Ingresar nombre: ");
         String nombreChef = sc.nextLine();

@@ -15,7 +15,7 @@ public interface EventoService {
 
     void inscribirParticipanteAlEvento(UUID idEvento, Long dniParticipante);
 
-    void asignarCheftAEvento(UUID idEvento, String nombre);
+    void asignarCheftAEvento(UUID idEvento, Long dniChef);
 
     void listarEventoPorFecha(LocalDateTime fecha);
 

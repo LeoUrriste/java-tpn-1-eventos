@@ -12,13 +12,13 @@ public class EventoGastronomico {
 
     private Map<Long,Participante> participantes = new HashMap();
     private Map<Long, Reseña> resenas = new HashMap<>();
-    private List<Chef> chefts = new ArrayList<>();
+    private Map<Long, Chef> chefts = new HashMap();
 
-    public List<Chef> getChefts() {
+    public Map<Long, Chef> getChefts() {
         return chefts;
     }
 
-    public void setChefts(List<Chef> chefts) {
+    public void setChefts(Map<Long, Chef> chefts) {
         this.chefts = chefts;
     }
 
