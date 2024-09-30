@@ -14,14 +14,14 @@ public class ReseñaServiceImpl implements ResenaService {
     @Override
     public Reseña agregarResena(UUID idEvento, Long dniParticipante) {
         Comedor comedor = new Comedor();
-        EventoGastronomico eventoGastronomico = new EventoGastronomico();
+        EventoGastronomico eventoGastronomicoNew = new EventoGastronomico();
         Scanner sc = new Scanner(System.in);
         boolean existeEvento = Boolean.FALSE;
 
         Reseña nuevaResena = new Reseña(idEvento, dniParticipante);
 
-        for (EventoGastronomico eventoGastronomico1 : comedor.getEventos()) {
-            if (eventoGastronomico.getIdEvento().equals(idEvento)) {
+        for (EventoGastronomico eventoGastro : comedor.getEventos()) {
+            if (eventoGastro.getIdEvento().equals(idEvento)) {
                 existeEvento = Boolean.TRUE;
             }break;
 
@@ -33,7 +33,7 @@ public class ReseñaServiceImpl implements ResenaService {
         Integer calificacion = sc.nextInt();
         nuevaResena.setCalificacion(calificacion);
 
-        eventoGastronomico.getResenas().put(dniParticipante,nuevaResena);
+        eventoGastronomicoNew.getResenas().put(dniParticipante,nuevaResena);
         System.out.println("Reseña registrada");
         return nuevaResena;
     }
