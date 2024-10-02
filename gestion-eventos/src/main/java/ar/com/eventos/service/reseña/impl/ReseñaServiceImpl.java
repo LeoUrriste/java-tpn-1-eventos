@@ -14,27 +14,30 @@ public class ReseñaServiceImpl implements ResenaService {
     @Override
     public Reseña agregarResena(UUID idEvento, Long dniParticipante) {
         Comedor comedor = new Comedor();
-        EventoGastronomico eventoGastronomicoNew = new EventoGastronomico();
         Scanner sc = new Scanner(System.in);
-        boolean existeEvento = Boolean.FALSE;
-
+        EventoGastronomico eventoEncontrado = new EventoGastronomico();
         Reseña nuevaResena = new Reseña(idEvento, dniParticipante);
 
         for (EventoGastronomico eventoGastro : comedor.getEventos()) {
             if (eventoGastro.getIdEvento().equals(idEvento)) {
-                existeEvento = Boolean.TRUE;
-            }break;
 
+                eventoEncontrado = eventoGastro;
+                break;
+            }
         }
+
         System.out.println("Ingrese la reseña:");
         String comentario = sc.nextLine();
         nuevaResena.setResena(comentario);
+
         System.out.println("Ingrese la calificación (un número entero entre 1 y 5):");
         Integer calificacion = sc.nextInt();
         nuevaResena.setCalificacion(calificacion);
 
-        eventoGastronomicoNew.getResenas().put(dniParticipante,nuevaResena);
+        eventoEncontrado.getResenas().put(dniParticipante, nuevaResena);
         System.out.println("Reseña registrada");
+
         return nuevaResena;
+
     }
 }
