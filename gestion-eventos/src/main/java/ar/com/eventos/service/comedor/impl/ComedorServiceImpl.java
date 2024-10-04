@@ -10,7 +10,7 @@ public class ComedorServiceImpl implements ComedorService {
 
     Comedor comedor;
 
-    public ComedorServiceImpl() {
+    public ComedorServiceImpl(Comedor comedor) {
         this.comedor = comedor;
     }
 
